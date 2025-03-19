@@ -45,10 +45,6 @@ h1 {
 	position: relative;
 }
 
-.images__item:has(img[src])::after {
-	display: none;
-}
-
 .images__item::before {
 	position: absolute;
 	content: "";
@@ -57,17 +53,6 @@ h1 {
 	margin: -3px;
 	border-radius: inherit;
 	background: linear-gradient(to right bottom, #18a5a7, #bfffc7);
-}
-
-.images__item::after {
-	position: absolute;
-	content: "";
-	top: 0;
-	bottom: 0;
-	left: -100px;
-	width: 100px;
-	background: linear-gradient(to right, transparent, #ffffff70, transparent);
-	animation: skeleton 1.2s infinite;
 }
 
 .images__item img {
@@ -112,11 +97,5 @@ h1 {
 @media (max-width: 350px) {
 	.images {
 		grid-template-columns: repeat(1, auto);
-	}
-}
-
-@keyframes skeleton {
-	100% {
-		left: calc(100% + 100px);
 	}
 }
