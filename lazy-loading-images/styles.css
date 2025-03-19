@@ -1,0 +1,123 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Poppins", sans-serif;
+	background-color: #fdfaf6;
+}
+
+.container {
+	max-width: 1020px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 50px;
+}
+h1 {
+	text-align: center;
+	padding: 10px 0;
+	background: linear-gradient(to right, #06609b, #01e496);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.images {
+	margin: 20px 0;
+	display: grid;
+	/* grid-template-columns: repeat(5, minmax(150px, auto)); */
+	grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+	grid-gap: 10px;
+	overflow: hidden;
+}
+
+.images__item {
+	width: 100%;
+	height: 150px;
+	background-color: #ccc;
+	background-clip: padding-box;
+	border: 3px solid transparent;
+	border-radius: 10px;
+	position: relative;
+}
+
+.images__item:has(img[src])::after {
+	display: none;
+}
+
+.images__item::before {
+	position: absolute;
+	content: "";
+	inset: 0;
+	z-index: -1;
+	margin: -3px;
+	border-radius: inherit;
+	background: linear-gradient(to right bottom, #18a5a7, #bfffc7);
+}
+
+.images__item::after {
+	position: absolute;
+	content: "";
+	top: 0;
+	bottom: 0;
+	left: -100px;
+	width: 100px;
+	background: linear-gradient(to right, transparent, #ffffff70, transparent);
+	animation: skeleton 1.2s infinite;
+}
+
+.images__item img {
+	display: block;
+	position: relative;
+	border-radius: 7px;
+
+	object-fit: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 100%;
+}
+
+@media (max-width: 992px) {
+	.container {
+		padding: 0 25px;
+	}
+}
+
+@media (max-width: 576px) {
+	.container {
+		padding: 0 10px;
+	}
+}
+/* 
+@media (max-width: 950px) {
+	.images {
+		grid-template-columns: repeat(4, auto);
+	}
+}
+
+@media (max-width: 650px) {
+	.images {
+		grid-template-columns: repeat(3, auto);
+	}
+}
+
+@media (max-width: 450px) {
+	.images {
+		grid-template-columns: repeat(2, auto);
+	}
+}
+
+@media (max-width: 350px) {
+	.images {
+		grid-template-columns: repeat(1, auto);
+	}
+} */
+
+@keyframes skeleton {
+	100% {
+		left: calc(100% + 100px);
+	}
+}
